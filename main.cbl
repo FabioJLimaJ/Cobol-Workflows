@@ -13,4 +13,4 @@
        MAIN-PROCEDURE.
             DISPLAY "Hello world"
             STOP RUN.
-       END PROGRAM COBOL-WORKFLOWS.
+       END PROGRAM COBOL-WORKFLOWS
