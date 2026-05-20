@@ -1,0 +1,27 @@
+name: COBOL Testes
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  compile-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Baixa o código do seu repositório
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Instala o compilador GnuCOBOL
+      - name: Install GnuCOBOL
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gnucobol
+
+      # 3. Verifica a sintaxe do seu arquivo main.cbl
+      # O -fsyntax-only vai caçar pontos finais faltando, divisões erradas ou erros de margem
+      - name: Syntax Check main.cbl
+        run: cobc -fsyntax-only main.cbl
