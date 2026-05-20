@@ -11,6 +11,6 @@
        WORKING-STORAGE SECTION.
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
-            DISPLAY "Hello world"
+            DISPLAY "Cobolboys"
             STOP RUN.
        END PROGRAM COBOL-WORKFLOWS.
