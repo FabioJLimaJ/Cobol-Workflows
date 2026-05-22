@@ -3,7 +3,7 @@
        DATA DIVISION.
        FILE SECTION.
        WORKING-STORAGE SECTION.
-       01 NUM1        PIC 9(4) VALUE 2.
+       01 NUM1        PIC 9(4) VALUE 3.
        01 NUM2        PIC 9(4) VALUE 3.
        01 RESULTADO       PIC 9(4).       
 
