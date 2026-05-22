@@ -5,12 +5,13 @@
       * Tectonics: cobc
       ******************************************************************
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. COBOL-WORKFLOWS.
+       PROGRAM-ID. SOMA.
        DATA DIVISION.
-       FILE SECTION.
-       WORKING-STORAGE SECTION.
-       PROCEDURE DIVISION.
-       MAIN-PROCEDURE.
-            DISPLAY "Cobolboys"
-            STOP RUN.
-       END PROGRAM COBOL-WORKFLOWS.
+       LINKAGE SECTION.
+       01 NUM1      PIC 9(4).
+       01 NUM2      PIC 9(4).
+       01 RESULTADO PIC 9(4).
+   
+       PROCEDURE DIVISION USING NUM1 NUM2 RESULTADO.
+       COMPUTE RESULTADO = NUM1 + NUM2
+       GOBACK.
