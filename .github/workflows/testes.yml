@@ -5,24 +5,36 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test:
+  test-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install GnuCOBOL
+      - name: Instalar GnuCOBOL
         run: |
           sudo apt-get update
           sudo apt-get install -y gnucobol
 
-      
-      - name: Compilar
+      - name: Executar os testes
         run: cobc -x testes.cbl main.cbl -o testes
       
       - name: Rodar testes
         run: |
-          ./testes 
+          ./testes
+      - name: Login Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build da imagem
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/main:latest .
+
+      - name: Push da imagem
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/main:latest
 
 
 
