@@ -1,11 +1,10 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
-RUN apt-get update && apt-get install -y gnucobol && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get install -y gnucobol
 
-WORKDIR /app
+COPY . .
 
-COPY main.cbl .
+RUN cobc -x main.cbl -o programa
 
-RUN cobc -x -o sistema main.cbl
-
-CMD ["./sistema"]
+CMD ["./programa"]
