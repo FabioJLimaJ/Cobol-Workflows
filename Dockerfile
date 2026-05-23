@@ -5,6 +5,6 @@ RUN apt-get update && \
 
 COPY . .
 
-RUN cobc -x main.cbl -o programa
+RUN cobc -x app.cbl main.cbl -o app
 
-CMD ["./programa"]
+CMD ["./app"]
