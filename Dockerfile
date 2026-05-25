@@ -5,6 +5,6 @@ RUN apt-get update && \
 
 COPY . .
 
-RUN cobc -x app.cbl senhas.cbl login.cbl -o app
+RUN cobc -x app.cbl senhas.cbl login.cbl  -o app
 
 CMD ["./app"]

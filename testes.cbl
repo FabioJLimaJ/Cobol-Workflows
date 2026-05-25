@@ -3,12 +3,14 @@
        DATA DIVISION.
        FILE SECTION.
        WORKING-STORAGE SECTION.
-       01 USUARIO         PIC X(6) VALUE "Fabio".
+       01 USUARIO         PIC X(20) VALUE "Paulo".
        
        01 USUARIO-VALIDADO     PIC X.
        
        01 SENHA           PIC X(6) VALUE '123456'.
        01 SENHA-VALIDADA  PIC X.
+       
+       01 CONTADOR-ERROS  PIC 9(2) VALUE 0.
 
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
@@ -18,7 +20,7 @@
                    DISPLAY "TESTE USUARIO PASSOU"
                ELSE
                    DISPLAY "TESTE USUARIO FALHOU"
-           STOP RUN RETURNING 1
+           ADD 1 TO CONTADOR-ERROS
            END-IF
 
            CALL 'SENHA' USING SENHA SENHA-VALIDADA
@@ -26,9 +28,15 @@
                   DISPLAY "TESTE SENHA PASSOU"
                ELSE
                    DISPLAY "TESTE SENHA FALHOU"
-           STOP RUN RETURNING 1
+                   ADD 1 TO CONTADOR-ERROS
            END-IF
 
-            STOP RUN.
+           IF CONTADOR-ERROS > 0
+               
+               STOP RUN RETURNING 1
+           ELSE
+               STOP RUN.
+
+
            
            END PROGRAM TESTES.
