@@ -7,7 +7,7 @@
        
        01 USUARIO-VALIDADO     PIC X.
        
-       01 SENHA           PIC X(6) VALUE '123456'.
+       01 SENHA           PIC X(6) VALUE '12345'.
        01 SENHA-VALIDADA  PIC X.
        
        01 CONTADOR-ERROS  PIC 9(2) VALUE 0.
