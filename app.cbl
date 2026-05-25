@@ -10,7 +10,7 @@
 
        01 LS-VALIDA            PIC X.
 
-       01 LS-USUARIO            PIC X(20) VALUE 'Fabio'.
+       01 LS-USUARIO            PIC X(20) VALUE 'Paulo Candido'.
 
        01 LS-VALIDA-USUARIO     PIC X.
 
