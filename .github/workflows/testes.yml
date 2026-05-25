@@ -17,7 +17,7 @@ jobs:
           sudo apt-get install -y gnucobol
 
       - name: Executar os testes
-        run: cobc -x testes.cbl main.cbl -o testes
+        run: cobc -x testes.cbl senha.cbl login.cbl  -o testes
       
       - name: Rodar testes
         run: |
