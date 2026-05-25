@@ -3,7 +3,7 @@
        DATA DIVISION.
        FILE SECTION.
        WORKING-STORAGE SECTION.
-       01 USUARIO         PIC X(20) VALUE "Pa".
+       01 USUARIO         PIC X(20) VALUE "Paulo".
        
        01 USUARIO-VALIDADO     PIC X.
        
